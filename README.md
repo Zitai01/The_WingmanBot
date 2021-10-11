@@ -6,7 +6,7 @@
 
 [GitHub](https://github.com/Zitai01/The_WingmanBot) |
 [Heroku]() |
-[Trello]() |
+[Trello](https://trello.com/b/RYA9hRSp/wingmanbot) |
 [Linkedin](https://www.linkedin.com/in/zitai-huang/)
 
 ## **Description**
