@@ -25,3 +25,13 @@ body{
     border: none;
     background-color: slategray;
   }
+.avatar{
+    border-radius: 5em;
+    margin: 0 2em 0 2em;
+}
+
+.loggedin{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
