@@ -1,11 +1,15 @@
 <template>
     <nav>
-        <router-link exact-active-class="active_link" class="link" to="/">Home</router-link>
+        <router-link exact-active-class="active_link" class="link logo" to="/">Wingman Bot</router-link>
+        <div class="routes">
         
         <router-link exact-active-class="active_link" class="link" to="/about">About</router-link>
+        </div>
+      
         
         <div v-if="userName && authenticated" class="loggedin">
-            <h1>{{userName}}</h1>
+            <button @click="logout">logout</button>
+            <h4>{{userName}}</h4>
             <img class="avatar" :src="avatar" alt="avatar">
         </div>
         <div v-else  class="login">
@@ -39,6 +43,14 @@ export default {
             console.log(result)
             this.authenticated = true
            }
+        },
+        logout(){
+            this.authenticated=false
+            this.userName=null
+            this.avatar=null
+            localStorage.removeItem('token')
+            this.$router.go() 
+
         }
     },
     mounted(){
