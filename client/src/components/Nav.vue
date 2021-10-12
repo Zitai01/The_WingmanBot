@@ -4,6 +4,7 @@
         <div class="routes">
         
         <router-link exact-active-class="active_link" class="link" to="/about">About</router-link>
+        <router-link exact-active-class="active_link" class="link" to="/botforum">Forum</router-link>
         </div>
       
         
