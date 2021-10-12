@@ -7,7 +7,12 @@ import PostDetail from './pages/PostDetail'
 const routes = [
   { path: '/', component: Home, name: 'Home' },
   { path: '/about', component: About, name: 'About' },
-  { path: '/dashboard/:code', component: Dashboard, name: 'Dashboard' },
+  {
+    path: '/dashboard/:code',
+    component: Dashboard,
+    name: 'Dashboard',
+    props: true
+  },
   { path: '/botforum', component: BotForum, name: 'BotForum' },
   { path: '/postdetail/:postid', component: PostDetail, name: 'PostDetail' }
 ]

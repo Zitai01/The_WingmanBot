@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello</h1>
+        <h1>Redirecting to Home</h1>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
         storeCode(){
             let code = this.$route.params.code
             localStorage.token = code
-            this.$router.push(`/`)
+            this.$router.push({name:'Home',params:{authenticated:true}})
         }
     },
     mounted(){

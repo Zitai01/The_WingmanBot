@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <router-link exact-active-class="active_link" class="link logo" to="/">Wingman Bot</router-link>
+        <router-link :key="$route.path" exact-active-class="active_link" class="link logo" to="/">Wingman Bot</router-link>
         <div class="routes">
         
         <router-link exact-active-class="active_link" class="link" to="/about">About</router-link>
@@ -27,13 +27,21 @@ export default {
     data:()=>({
         authenticated:false,
         userName:null,
-        avatar:null
+        avatar:null,
+        rerender:null
     }
-    ),methods:{
+    ),
+    watch:{
+        '$route'(){
+            this.getuserProfile()
+        }
+    },
+    methods:{
         async getuserProfile(){
+            //this.authenticated = this.$router.params.authenticated
            let token = localStorage.token
            if (token){
-
+            if(this.authenticated ==false){
            
            let header = {headers:{ Authorization: `Bearer ${token}`}}
            const result = await axios.get('https://discordapp.com/api/users/@me',header)  
@@ -43,7 +51,7 @@ export default {
             this.avatar = `https://cdn.discordapp.com/avatars/${this.userid}/${avatar}.jpg`
             console.log(result)
             this.authenticated = true
-           }
+           }}
         },
         logout(){
             this.authenticated=false
@@ -55,7 +63,7 @@ export default {
         }
     },
     mounted(){
-        this.getuserProfile()
+        //this.getuserProfile()
     }
 }
 </script>
