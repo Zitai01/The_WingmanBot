@@ -1,5 +1,5 @@
 <template>
-    <div class="postcard">
+    <div class="postcard" @click="godetail">
         <div >{{post.title}}</div>
         <div>{{post.content.substring(0,10)}}...</div>
         <div >{{post.createdAt}}</div>
@@ -31,6 +31,9 @@ export default {
             let user = await axios.put(`${BASE_URL}/db/user/id`,body)
             this.userName = user.data.username
             console.log(user)
+        },
+        godetail(){
+            this.$router.push(`/postdetail/${this.post.id}`)
         }
     },
     mounted(){

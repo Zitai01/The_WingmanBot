@@ -83,3 +83,9 @@ header{
     align-items: center;
     font-size: 2em; 
 }
+.postmain{
+    display: flex;
+}
+.usercard{
+    width: 15em;
+}
