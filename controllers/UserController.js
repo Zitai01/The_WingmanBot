@@ -28,7 +28,19 @@ const CreateUser = async (req, res) => {
   }
 }
 
+const getUserbyid = async (req, res) => {
+  try {
+    let id = req.body.id
+    const user = await User.findOne({
+      where: { id: parseInt(id) }
+    })
+    res.send(user)
+  } catch (err) {
+    throw err
+  }
+}
 module.exports = {
   GetUsers,
-  CreateUser
+  CreateUser,
+  getUserbyid
 }
