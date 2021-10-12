@@ -27,7 +27,19 @@ const createPost = async (req, res) => {
     throw err
   }
 }
+
+const delPost = async (req, res) => {
+  try {
+    const postid = parseInt(req.body.postid)
+    await Post.destroy({ where: { id: postid } })
+    res.send({ message: `Post ${postid} Delete successful` })
+  } catch (err) {
+    throw err
+  }
+}
+
 module.exports = {
   getPosts,
-  createPost
+  createPost,
+  delPost
 }

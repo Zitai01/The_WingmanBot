@@ -11,7 +11,7 @@ const GetUsers = async (req, res) => {
 
 const CreateUser = async (req, res) => {
   try {
-    let username = req.body.userName
+    let username = req.body.username
     let user_id = req.body.user_id
     let avatar = req.body.avatar
     let body = {
@@ -31,6 +31,10 @@ const CreateUser = async (req, res) => {
 const getUserbyid = async (req, res) => {
   try {
     let id = req.body.id
+    if (id == null) {
+      res.send(null)
+    }
+    console.log(req.body)
     const user = await User.findOne({
       where: { id: parseInt(id) }
     })
