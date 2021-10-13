@@ -1,6 +1,6 @@
 <template>
-    <div class="commentbox">
-        <div class="commentlist" :key="comment.id" v-for="comment in comments" >
+    <div class="commentbox" v-if="comments" >
+        <div  class="commentlist" :key="comment.id" v-for="comment in comments" >
             <CommentCard :comment="comment"  />
         </div>
         
@@ -35,18 +35,26 @@ export default {
     props:[
         'post'
     ],
+    watch:{
+        post:function(){
+            this.getComments()
+        }
+    },
     methods:{
         async getComments(){
+            
             let body = {
                 "postid":parseInt(this.post.id)
             }
             let result =await axios.put(`${BASE_URL}/db/comment`,body)
                 this.comments = result.data
-                
+                console.log('comments')
+                console.log(result.data)
+            
         }
     },
     mounted(){
-        this.getComments()
+        
     }
 
 }

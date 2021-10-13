@@ -17,7 +17,7 @@ const CreateUser = async (req, res) => {
     const nodup = await User.findAll({ where: { user_id: user_id } })
     console.log('duplicatarry')
     console.log(nodup)
-    if (nodup == []) {
+    if (nodup.length < 1) {
       let body = {
         user_id: user_id,
         username: username,

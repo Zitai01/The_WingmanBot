@@ -17,5 +17,5 @@ Router.put('/post', postController.getPostByid)
 
 Router.put('/comment', commentController.getCommentsBypostid)
 Router.post('/comment', commentController.creatComment)
-Router.delete('/comment', commentController.delComment)
+Router.delete('/comment/:id', commentController.delComment)
 module.exports = Router

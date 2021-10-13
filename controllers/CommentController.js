@@ -14,7 +14,8 @@ const creatComment = async (req, res) => {
 
 const delComment = async (req, res) => {
   try {
-    let id = req.body.id
+    let id = parseInt(req.params.id)
+    console.log(id)
     await Comment.destroy({ where: { id: id } })
     res.send({ message: `Comment ${id} Delete successful` })
   } catch (err) {

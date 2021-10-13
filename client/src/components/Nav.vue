@@ -53,6 +53,7 @@ export default {
             this.avatar = `https://cdn.discordapp.com/avatars/${this.userid}/${avatar}.jpg`
             console.log(result)
             this.authenticated = true
+            //localStorage.setItem('userid',result.data.id)
             let body = {
                 "user_id":this.userid
             }
@@ -66,6 +67,9 @@ export default {
                 }
                 const respond = await axios.post(`${BASE_URL}/db/user`,userbody)
                 console.log(respond)
+                localStorage.setItem('userid',respond.data.id)
+            }else{
+                localStorage.setItem('userid',checkuser.data.id)
             }
            }}
         },
