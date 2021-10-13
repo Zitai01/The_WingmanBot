@@ -78,6 +78,7 @@ export default {
             this.userName=null
             this.avatar=null
             localStorage.removeItem('token')
+            localStorage.removeItem('userid')
             this.$router.go() 
 
         }

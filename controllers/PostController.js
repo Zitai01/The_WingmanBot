@@ -11,7 +11,7 @@ const getPosts = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const user_id = req.body.user_id
+    const user_id = req.body.userid
     const title = req.body.title
     const content = req.body.content
     let body = {

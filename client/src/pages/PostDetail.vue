@@ -30,7 +30,8 @@ export default {
     data:()=>({
         postOwner:null,
         post:null,
-        ownerAvatar:null
+        ownerAvatar:null,
+        userid:null
     }),
     methods:{
         async getPostandowner(){
@@ -46,7 +47,7 @@ export default {
             }
         let res2 = await axios.put(`${BASE_URL}/db/user/id`,body2)
             this.postOwner = res2.data
-             this.ownerAvatar = `https://cdn.discordapp.com/avatars/${this.postOwner.user_id}/${this.postOwner.avatar}.jpg`
+             this.ownerAvatar = this.postOwner.avatar
 
         }
         

@@ -8,8 +8,8 @@
 
 
 
-        <form action="">
-           <textarea name="" id="" cols="30" rows="10"></textarea> 
+        <form @submit="handleSubmit" >
+           <textarea v-model="message" cols="30" rows="10"></textarea> 
            <button>Submit</button>
         </form>
 
@@ -30,7 +30,8 @@ export default {
         CommentCard
     },
     data:()=>({
-        comments:null
+        comments:null,
+        message:null
     }),
     props:[
         'post'
@@ -51,6 +52,17 @@ export default {
                 console.log('comments')
                 console.log(result.data)
             
+        },
+        async handleSubmit(){
+            let body ={
+                "postid":parseInt(this.post.id),
+                "userid":parseInt(localStorage.userid),
+                "content":this.message
+            }
+            
+            const result =await axios.post(`${BASE_URL}/db/comment`,body)
+            console.log(result)
+            this.message = ''
         }
     },
     mounted(){
