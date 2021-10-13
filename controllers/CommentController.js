@@ -12,11 +12,18 @@ const creatComment = async (req, res) => {
   res.send(result)
 }
 
-const updateCommant = async (req, res) => {}
-
-const delComment = async (req, res) => {}
+const delComment = async (req, res) => {
+  try {
+    let id = req.body.id
+    await Comment.destroy({ where: { id: id } })
+    res.send({ message: `Comment ${id} Delete successful` })
+  } catch (err) {
+    throw err
+  }
+}
 
 module.exports = {
   getCommentsBypostid,
-  creatComment
+  creatComment,
+  delComment
 }

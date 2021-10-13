@@ -12,7 +12,7 @@
             </div>
             
         </div>
-        <Comments />
+        <Comments :post='post' />
     </div>
 </template>
 
