@@ -12,16 +12,21 @@
             </div>
             
         </div>
+        <Comments />
     </div>
 </template>
 
 
 
 <script>
+import Comments from '../components/Comments.vue'
 import axios from 'axios'
 import {BASE_URL} from '../globals'
 export default {
     name:'PostDetail',
+    components:{
+        Comments
+    },
     data:()=>({
         postOwner:null,
         post:null,

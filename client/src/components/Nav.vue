@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {BASE_URL} from '../globals'
 import axios from 'axios'
 export default {
     name:'Nav',
@@ -28,7 +29,8 @@ export default {
         authenticated:false,
         userName:null,
         avatar:null,
-        rerender:null
+        rerender:null,
+        userid:null
     }
     ),
     watch:{
@@ -37,8 +39,8 @@ export default {
         }
     },
     methods:{
+        // Rerender Nav bar after login with Discord then post the user info to database if it didn't exist.
         async getuserProfile(){
-            //this.authenticated = this.$router.params.authenticated
            let token = localStorage.token
            if (token){
             if(this.authenticated ==false){
@@ -51,6 +53,20 @@ export default {
             this.avatar = `https://cdn.discordapp.com/avatars/${this.userid}/${avatar}.jpg`
             console.log(result)
             this.authenticated = true
+            let body = {
+                "user_id":this.userid
+            }
+            const checkuser = await axios.put(`${BASE_URL}/db/user/discordid`,body)
+            console.log(checkuser)
+            if (checkuser.data=='' ){
+                let userbody = {
+                    "user_id":this.userid,
+                    "username":this.userName,
+                    "avatar":this.avatar
+                }
+                const respond = await axios.post(`${BASE_URL}/db/user`,userbody)
+                console.log(respond)
+            }
            }}
         },
         logout(){
@@ -63,7 +79,7 @@ export default {
         }
     },
     mounted(){
-        //this.getuserProfile()
+        this.getuserProfile()
     }
 }
 </script>

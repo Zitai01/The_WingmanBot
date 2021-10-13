@@ -7,6 +7,8 @@
 <script>
 export default {
     name:'Dashboard',
+    
+
     methods:{
         storeCode(){
             let code = this.$route.params.code

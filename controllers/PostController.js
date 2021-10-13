@@ -38,8 +38,20 @@ const delPost = async (req, res) => {
   }
 }
 
+const getPostByid = async (req, res) => {
+  try {
+    let id = parseInt(req.body.postid)
+    let result = await Post.findOne({ where: { id: id } })
+    console.log(result)
+    res.send(result)
+  } catch (err) {
+    throw err
+  }
+}
+
 module.exports = {
   getPosts,
   createPost,
-  delPost
+  delPost,
+  getPostByid
 }

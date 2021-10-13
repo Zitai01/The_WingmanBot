@@ -7,10 +7,12 @@ const commentController = require('../controllers/CommentController')
 Router.get('/user/', userController.GetUsers)
 Router.post('/user/', userController.CreateUser)
 Router.put('/user/id', userController.getUserbyid)
+Router.put('/user/discordid', userController.getUserbyDiscordid)
 //Post Controllers
 Router.get('/post/', postController.getPosts)
 Router.post('/post/', postController.createPost)
 Router.delete('/post', postController.delPost)
+Router.put('/post', postController.getPostByid)
 //Comment Controllers
 
 Router.get('/comment', commentController.getCommentsBypostid)
