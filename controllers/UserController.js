@@ -3,6 +3,7 @@ const { User, Post, Comment } = require('../models')
 const GetUsers = async (req, res) => {
   try {
     const users = await User.findAll()
+    console.log(req.authorization)
     res.send(users)
   } catch (error) {
     throw error

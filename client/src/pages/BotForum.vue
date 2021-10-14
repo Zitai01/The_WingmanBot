@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Client from '../services/authapi'
 import {BASE_URL} from '../globals'
 import axios from 'axios'
 import PostList from '../components/PostList.vue'
@@ -45,7 +46,7 @@ export default {
     },
     methods:{
         async getPosts(){
-            let res = await axios.get(`${BASE_URL}/db/post`)
+            let res = await Client.get(`/db/post`)
             this.posts = res.data
             console.log(res)
         },
