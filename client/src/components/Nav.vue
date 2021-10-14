@@ -21,8 +21,9 @@
 </template>
 
 <script>
-import {BASE_URL} from '../globals'
+
 import axios from 'axios'
+import Client from '../services/authapi'
 export default {
     name:'Nav',
     data:()=>({
@@ -57,7 +58,7 @@ export default {
             let body = {
                 "user_id":this.userid
             }
-            const checkuser = await axios.put(`${BASE_URL}/db/user/discordid`,body)
+            const checkuser = await Client.put(`/db/user/discordid`,body)
             console.log(checkuser)
             if (checkuser.data=='' ){
                 let userbody = {
@@ -65,7 +66,7 @@ export default {
                     "username":this.userName,
                     "avatar":this.avatar
                 }
-                const respond = await axios.post(`${BASE_URL}/db/user`,userbody)
+                const respond = await Client.post(`/db/user`,userbody)
                 console.log(respond)
                 localStorage.setItem('userid',respond.data.id)
             }else{

@@ -25,6 +25,8 @@ const login = async (req, res) => {
     )
     console.log(respond.data.access_token)
     token = respond.data.access_token
+    req.session.token = token
+    console.log(req.session)
     res.redirect(`http://localhost:8080/dashboard/${token}`)
   } catch (error) {
     console.log(error)

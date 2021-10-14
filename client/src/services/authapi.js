@@ -1,7 +1,10 @@
 import Axios from 'axios'
 
 export const BASE_URL = 'http://localhost:3001/api'
-const Client = Axios.create({ baseURL: BASE_URL })
+const Client = Axios.create({
+  withCredentials: true,
+  baseURL: BASE_URL
+})
 
 // Intercepts every request axios makes
 Client.interceptors.request.use(
@@ -12,6 +15,7 @@ Client.interceptors.request.use(
     if (token) {
       config.headers['authorization'] = `Bearer ${token}`
     }
+
     return config // We return the new config if the token exists or the default config if no token exists.
     // Provides the token to each request that passes through axios
   },

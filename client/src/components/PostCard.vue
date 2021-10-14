@@ -8,8 +8,7 @@
 </template>
 
 <script>
-import {BASE_URL} from '../globals'
-import axios from 'axios'
+import Client from '../services/authapi'
 export default {
     name:'PostCard',
     data:()=>({
@@ -28,7 +27,7 @@ export default {
             }
             // headers: {'Content-Type': 'application/json'},
                         
-            let user = await axios.put(`${BASE_URL}/db/user/id`,body)
+            let user = await Client.put(`/db/user/id`,body)
             this.userName = user.data.username
             console.log(user)
         },

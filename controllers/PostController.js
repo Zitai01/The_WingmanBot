@@ -3,7 +3,12 @@ const { User, Post, Comment } = require('../models')
 const getPosts = async (req, res) => {
   try {
     const posts = await Post.findAll()
-    console.log(req.headers.authorization.split(' ')[1])
+    if (req.headers.authorization) {
+      console.log(req.headers.authorization.split(' ')[1])
+    }
+
+    console.log(req.session)
+    console.log(req.session.id)
     res.send(posts)
   } catch (err) {
     throw err

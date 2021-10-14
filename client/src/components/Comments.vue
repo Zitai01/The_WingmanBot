@@ -21,8 +21,8 @@
 
 
 <script>
-import {BASE_URL} from '../globals'
-import axios from 'axios'
+
+import Client from '../services/authapi'
 import CommentCard from './CommentCard.vue'
 export default {
     name:'Comments',
@@ -47,7 +47,7 @@ export default {
             let body = {
                 "postid":parseInt(this.post.id)
             }
-            let result =await axios.put(`${BASE_URL}/db/comment`,body)
+            let result =await Client.put(`/db/comment`,body)
                 this.comments = result.data
                 console.log('comments')
                 console.log(result.data)
@@ -60,7 +60,7 @@ export default {
                 "content":this.message
             }
             
-            const result =await axios.post(`${BASE_URL}/db/comment`,body)
+            const result =await Client.post(`/db/comment`,body)
             console.log(result)
             this.message = ''
         }

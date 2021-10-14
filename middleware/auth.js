@@ -12,13 +12,12 @@ const stripToken = (req, res, next) => {
 
 const verifyToken = (req, res, next) => {
   const { token } = res.locals
-  //   Gets the token stored in the request lifecycle state
-  let payload = jwt.verify(token, APP_SECRET)
-  //   Verifys the token is legit
-  if (payload) {
-    res.locals.payload = payload // Passes the decoded payload to the next function
-
-    //   Calls the next function if the token is valid
+  let servertoken = req.session.token
+  console.log('token')
+  console.log(token)
+  console.log(servertoken)
+  if (token === servertoken) {
+    res.locals.token = token
     return next()
   }
   res.status(401).send({ status: 'Error', msg: 'Unauthorized' })

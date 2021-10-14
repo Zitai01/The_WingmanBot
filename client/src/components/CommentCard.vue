@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+
+import Client from '../services/authapi'
 export default {
     name:'CommentCard',
     data:()=>({
@@ -23,16 +23,16 @@ export default {
             let body={
                 "id":this.comment.userid
             }
-            let result = await axios.put(`${BASE_URL}/db/user/id`,body)
+            let result = await Client.put(`/db/user/id`,body)
             this.id = localStorage.userid
             this.username = result.data.username
         },
         async delComment(){
             let id = this.comment.id
             
-            let result = await axios.delete(`${BASE_URL}/db/comment/${id}`)
-
-            console.log(result)
+             await Client.delete(`/db/comment/${id}`)
+            this.$router.go()
+            
         }
     },
     mounted(){

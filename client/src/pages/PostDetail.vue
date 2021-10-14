@@ -19,9 +19,8 @@
 
 
 <script>
+import Client from '../services/authapi'
 import Comments from '../components/Comments.vue'
-import axios from 'axios'
-import {BASE_URL} from '../globals'
 export default {
     name:'PostDetail',
     components:{
@@ -39,13 +38,13 @@ export default {
             let body = {
                 "postid":postid
             }
-            let res = await axios.put(`${BASE_URL}/db/post`,body)
+            let res = await Client.put(`/db/post`,body)
             this.post = res.data
             console.log(res)
             let body2 = {
                 "id":this.post.userid
             }
-        let res2 = await axios.put(`${BASE_URL}/db/user/id`,body2)
+        let res2 = await Client.put(`/db/user/id`,body2)
             this.postOwner = res2.data
              this.ownerAvatar = this.postOwner.avatar
 
