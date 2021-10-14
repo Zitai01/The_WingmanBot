@@ -1,8 +1,9 @@
 <template>
     <div class="commentcard" v-if="comment">
-        <div>{{comment.content}}</div>
-        <div>{{comment.createdAt}}</div>
-        <div>By {{username}}</div><button v-if="id==comment.userid" @click="delComment">X</button>
+        <h2 >{{comment.content}} </h2>
+        <div>{{date.toLocaleString()}}</div>
+        <h3>By {{username}}</h3>
+        <button v-if="id==comment.userid" @click="delComment">X</button>
     </div>
 </template>
 
@@ -13,13 +14,20 @@ export default {
     name:'CommentCard',
     data:()=>({
         username:null,
-        id:null
+        id:null,
+        date:null
     }),
     props:[
         'comment'
     ],
     methods:{
         async getUserName(){
+            let d =this.comment.createdAt
+            this.date = new Date(Date.parse(d))
+
+
+
+
             let body={
                 "id":this.comment.userid
             }

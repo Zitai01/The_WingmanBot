@@ -2,7 +2,7 @@
     <div class="postcard" @click="godetail">
         <div class="cardtitle" >{{post.title}}</div>
         <div>{{post.content.substring(0,10)}}...</div>
-        <div >{{post.createdAt}}</div>
+        <div >{{date.toLocaleString()}}</div>
         <div class="cardtitle">{{userName}}</div>
     </div>
 </template>
@@ -12,13 +12,17 @@ import Client from '../services/authapi'
 export default {
     name:'PostCard',
     data:()=>({
-        userName:null
+        userName:null,
+        date:null
     }),
     props:[
         'post'
     ],
     methods:{
         async getUsername(){
+            let d =this.post.createdAt
+            this.date = new Date(Date.parse(d))
+
             let id = await parseInt(this.post.userid)
             console.log(id)
             

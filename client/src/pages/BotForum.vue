@@ -1,7 +1,17 @@
 <template>
     <div>
         <h1>Welcome to the Wingman Bot Forum</h1>
-        <button style="font-size:1.5em" @click="triggerNewPost" v-if="authenticated" >New Post</button>
+        <div class="topbar" >
+            
+            <select name="" id="" v-model="selected">
+                <option value="new">Date: Newst</option>
+                <option value="old">Date: Oldest</option>
+            </select>
+            <button style="font-size:1.5em" @click="triggerNewPost" v-if="authenticated" >New Post</button>
+
+
+        </div>
+        
         <div v-if="newpost">
             <form  class="postform" @submit="handleSubmit">
                 <label for="title">Title</label>
@@ -38,10 +48,16 @@ export default {
         newpost:false,
         title:null,
         content:null,
-        authenticated:null
+        authenticated:null,
+        selected:'new'
     }),
     mounted(){
         this.getPosts()
+    },
+    watch:{
+        selected:function(){
+            this.arrangePost()
+        }
     },
     methods:{
         async getPosts(){
@@ -67,6 +83,20 @@ export default {
             }
             const result =await Client.post(`/db/post`,body)
             console.log(result)
+        },
+        arrangePost(){
+            let time = this.posts[0].createdAt
+            let d = Date.parse(time)
+            console.log(d)
+            if (this.selected=='new'){
+                this.posts.sort((a,b)=>
+                    Date.parse(b.createdAt) - Date.parse(a.createdAt)
+                )
+            }else if(this.selected=='old'){
+                this.posts.sort((a,b)=>
+                    Date.parse(a.createdAt) - Date.parse(b.createdAt)
+                )
+            }
         }
         
     }

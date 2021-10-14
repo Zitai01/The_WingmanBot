@@ -1,14 +1,17 @@
 <template>
     <div class="commentbox" v-if="comments" >
+        <h2>Comments</h2>
         <div  class="commentlist" :key="comment.id" v-for="comment in comments" >
+            
             <CommentCard :comment="comment"  />
         </div>
         
 
 
 
-
-        <form @submit="handleSubmit" >
+            
+        <form @submit="handleSubmit" class="commentform" >
+            <h2>Post Comment</h2>
            <textarea v-model="message" cols="30" rows="10"></textarea> 
            <button>Submit</button>
         </form>
