@@ -2,7 +2,7 @@
     <div>
         <div v-if="post" class="postmain">
             <div v-if="postOwner" class="usercard">
-                <img :src='ownerAvatar' alt="">
+                <img class="avatar" :src='ownerAvatar' alt="">
                 <h2>{{postOwner.username}}</h2>
                 <p>Join Date: {{postOwner.createdAt.substring(0,10)}}</p>
             </div>

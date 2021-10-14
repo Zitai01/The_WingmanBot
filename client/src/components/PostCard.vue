@@ -1,9 +1,9 @@
 <template>
     <div class="postcard" @click="godetail">
-        <div >{{post.title}}</div>
+        <div class="cardtitle" >{{post.title}}</div>
         <div>{{post.content.substring(0,10)}}...</div>
         <div >{{post.createdAt}}</div>
-        <div >{{userName}}</div>
+        <div class="cardtitle">{{userName}}</div>
     </div>
 </template>
 

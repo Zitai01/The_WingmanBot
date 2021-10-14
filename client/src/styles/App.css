@@ -69,7 +69,7 @@ header{
     background-color:rgb(84, 97, 109);
     height:4em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border: rgb(79, 228, 254) solid 1px;
     align-items: center;
     font-size: 2em;
@@ -78,7 +78,7 @@ header{
     background-color:rgb(45, 78, 109);
     height:2em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     
     align-items: center;
     font-size: 2em; 
@@ -87,11 +87,18 @@ header{
     display: flex;
 }
 .usercard{
-
+    min-height: 20em;
     width: 15em;
+    border-right: aquamarine solid 1px;
+    text-align: center;
+    margin-right: 5em;
 }
 .postform{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.cardtitle{
+    width: 6em;
+    text-align: center;
 }
