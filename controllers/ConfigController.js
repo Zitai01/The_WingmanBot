@@ -2,9 +2,9 @@ const { User, Post, Comment, Guild_config } = require('../models')
 
 const getConfigByGuildid = async (req, res) => {
   try {
-    let id = req.params.guildid
+    let guildid = req.params.guildid
 
-    const user = await User.findOne({
+    const user = await Guild_config.findOne({
       where: { guildid: guildid }
     })
     res.send(user)
@@ -35,5 +35,6 @@ const createConfig = async (req, res) => {
 }
 
 module.exports = {
-  getConfigByGuildid
+  getConfigByGuildid,
+  createConfig
 }
