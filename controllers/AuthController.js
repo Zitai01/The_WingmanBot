@@ -26,16 +26,13 @@ const login = async (req, res) => {
 
     token = respond.data.access_token
     req.session.token = token
-    console.log(req.session)
+    //  console.log(req.session)
     res.redirect(`http://localhost:8080/dashboard/${token}`)
   } catch (error) {
     console.log(error)
   }
 }
 
-const authServer = async (req, res) => {}
-
 module.exports = {
-  login,
-  authServer
+  login
 }

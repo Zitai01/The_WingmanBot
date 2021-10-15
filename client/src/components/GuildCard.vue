@@ -5,6 +5,7 @@
         <img :src="icon" alt="icon" class="avatar">
         <div>Role: Owner</div>
         <button @click="authGuild" >Authorize</button>
+        <button @click="guildPage" >Configurations</button>
     </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
         },
         authGuild(){
             window.open(`https://discord.com/api/oauth2/authorize?client_id=893515753217720320&permissions=534723950656&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Fredirect&scope=bot`,'_blank')
+        },
+        guildPage(){
+            this.$router.push('/guild')
         }
     },  
     mounted(){

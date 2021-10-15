@@ -11,15 +11,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Post, {
         as: 'my_posts',
-        foreignKey: 'userId'
+        foreignKey: 'userid'
       })
       User.hasMany(models.Comment, {
         as: 'my_comments',
-        foreignKey: 'userId'
+        foreignKey: 'userid'
       })
       User.hasMany(models.Guild_config, {
         as: 'my_guild-settings',
-        foreignKey: 'userId'
+        foreignKey: 'userid'
       })
     }
   }
