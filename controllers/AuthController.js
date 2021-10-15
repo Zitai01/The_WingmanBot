@@ -2,7 +2,7 @@ const axios = require('axios')
 require('dotenv').config()
 const login = async (req, res) => {
   let code = req.query.code
-  console.log(req.query)
+
   if (code == undefined) {
     res.send('Code undefined')
   }
@@ -23,7 +23,7 @@ const login = async (req, res) => {
       params,
       config
     )
-    console.log(respond.data.access_token)
+
     token = respond.data.access_token
     req.session.token = token
     console.log(req.session)
@@ -33,6 +33,9 @@ const login = async (req, res) => {
   }
 }
 
+const authServer = async (req, res) => {}
+
 module.exports = {
-  login
+  login,
+  authServer
 }

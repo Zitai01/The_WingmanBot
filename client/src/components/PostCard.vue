@@ -1,5 +1,5 @@
 <template>
-    <div class="postcard" @click="godetail">
+    <div class="postcard" @click="godetail" v-if="date">
         <div class="cardtitle" >{{post.title}}</div>
         <div>{{post.content.substring(0,10)}}...</div>
         <div >{{date.toLocaleString()}}</div>

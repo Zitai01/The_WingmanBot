@@ -1,13 +1,17 @@
 <template>
 <div>
    
-    <div v-if="guilds" class="guildlist">
-    <div :key="guild.id" v-for="guild in guilds">
-        <GuildCard :guild="guild" />
-    </div>
+    <div v-if="guilds" class="homemain" >
+        <h1>Select a server to authorize</h1>
+        <div class="guildlist">
+            <div :key="guild.id" v-for="guild in guilds">
+                <GuildCard :guild="guild" />
+            </div>
+        </div>
+    
     </div>
     <div v-else >
-        <h1>Login to see your severs</h1>
+        <h1>Welcome to Wingman Bot's custom app.</h1>
     </div>
 
 

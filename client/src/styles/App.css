@@ -122,3 +122,20 @@ header{
     display: flex;
     flex-direction: column;
 }
+.guildlist{
+    display: flex;
+    flex-direction: row;
+}
+.homemain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.guildcard{
+    margin: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

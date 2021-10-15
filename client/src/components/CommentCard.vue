@@ -1,5 +1,5 @@
 <template>
-    <div class="commentcard" v-if="comment">
+    <div class="commentcard" v-if="date">
         <h2 >{{comment.content}} </h2>
         <div>{{date.toLocaleString()}}</div>
         <h3>By {{username}}</h3>
