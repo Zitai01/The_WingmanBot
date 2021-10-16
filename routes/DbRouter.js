@@ -37,4 +37,6 @@ Router.delete('/comment/:id', commentController.delComment)
 //Config Controllers
 Router.post('/config', configController.createConfig)
 Router.get('/config/:guildid', configController.getConfigByGuildid)
+Router.put('/config/msg', configController.updateMsg)
+Router.put('/config/triggermsg', configController.updateTriggerMsg)
 module.exports = Router

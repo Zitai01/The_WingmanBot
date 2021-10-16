@@ -33,8 +33,42 @@ const createConfig = async (req, res) => {
     throw err
   }
 }
+const updateMsg = async (req, res) => {
+  try {
+    let guildid = req.body.guildid
+
+    await Guild_config.update(
+      { msg: `${req.body.msg}` },
+      {
+        where: { guildid: guildid }
+      }
+    )
+
+    return res.send({ message: `request updated to ${req.body.msg} ` })
+  } catch (err) {
+    throw err
+  }
+}
+const updateTriggerMsg = async (req, res) => {
+  try {
+    let guildid = req.body.guildid
+
+    await Guild_config.update(
+      { triggermsg: `${req.body.triggermsg}` },
+      {
+        where: { guildid: guildid }
+      }
+    )
+
+    return res.send({ message: `request updated to ${req.body.triggermsg} ` })
+  } catch (err) {
+    throw err
+  }
+}
 
 module.exports = {
   getConfigByGuildid,
-  createConfig
+  createConfig,
+  updateMsg,
+  updateTriggerMsg
 }
