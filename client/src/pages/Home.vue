@@ -12,6 +12,7 @@
     </div>
     <div v-else >
         <h1>Welcome to Wingman Bot's custom app.</h1>
+        <p>Please Login with discord to continue.</p>
     </div>
 
 
@@ -41,11 +42,13 @@ export default {
                     'Authorization':`Bearer ${token}`
                 }
             } 
+            if (token){
             let result = await axios.get('https://discordapp.com/api/users/@me/guilds',header)
             let guilds = result.data
             this.guilds = guilds.filter((guild)=>
                 guild.owner == true
             )
+            }
         }
     },
     mounted(){
