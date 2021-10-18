@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const session = require('express-session')
 const AppRouter = require('./routes/AppRouter')
-
+const startBot = require('./bot/index')
 const PORT = process.env.PORT || 3001
 
 //app.use(cors())
@@ -27,4 +27,7 @@ app.use(
 
 app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 app.use('/api', AppRouter)
-app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Server Started On Port: ${PORT}`)
+  startBot.startBot()
+})
