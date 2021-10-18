@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="config_detail">
         <h1>Config</h1>
 
         <form @submit.prevent>
@@ -25,7 +25,7 @@
 
 
 
-        <button>Back</button>
+        <button @click="goback">Back</button>
     </div>
 </template>
 
@@ -41,6 +41,9 @@ export default {
         triggermsgquery:null
     }),
     methods:{
+        goback(){
+            this.$router.push('/')
+        },
         async getConfig(){
             const result = await Client.get(`/db/config/${this.$route.params.guildid}`)
             this.msg = result.data.msg

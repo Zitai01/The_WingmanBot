@@ -4,8 +4,9 @@
         <div class="topbar" >
             
             <select name="" id="" v-model="selected">
-                <option value="new">Date: Newst</option>
+                
                 <option value="old">Date: Oldest</option>
+                <option value="new">Date: Newst</option>
             </select>
             <button style="font-size:1.5em" @click="triggerNewPost" v-if="authenticated" >New Post</button>
 
