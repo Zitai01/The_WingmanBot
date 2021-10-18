@@ -5,6 +5,8 @@ const cors = require('cors')
 const session = require('express-session')
 const AppRouter = require('./routes/AppRouter')
 const startBot = require('./bot/index')
+const path = require('path')
+
 const PORT = process.env.PORT || 3001
 
 //app.use(cors())
@@ -26,6 +28,14 @@ app.use(
 )
 
 app.use('/api', AppRouter)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/client/build/index.html`))
+  })
+}
+
 app.listen(PORT, () => {
   console.log(`Server Started On Port: ${PORT}`)
   startBot.startBot()
