@@ -150,7 +150,10 @@ header{
 .app{
     margin: 0;
 }
-
+.login{
+    margin-right: 1em;
+    margin-left: 1em;
+}
 h1,p{
     text-align: center;
 }

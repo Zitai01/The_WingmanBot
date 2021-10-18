@@ -52,8 +52,7 @@ export default {
             }
             let result =await Client.put(`/db/comment`,body)
                 this.comments = result.data
-                console.log('comments')
-                console.log(result.data)
+                
             
         },
         async handleSubmit(){

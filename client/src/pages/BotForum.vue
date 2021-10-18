@@ -67,7 +67,7 @@ export default {
             if (localStorage.token){
                 this.authenticated = true
             }
-            console.log(res)
+            
         },
         triggerNewPost(){
             if (this.newpost){
@@ -86,9 +86,8 @@ export default {
             console.log(result)
         },
         arrangePost(){
-            let time = this.posts[0].createdAt
-            let d = Date.parse(time)
-            console.log(d)
+            
+            
             if (this.selected=='new'){
                 this.posts.sort((a,b)=>
                     Date.parse(b.createdAt) - Date.parse(a.createdAt)

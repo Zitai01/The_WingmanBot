@@ -18,8 +18,18 @@ The Wingman Bot is a utility discord bot that improves discord user's overall ex
 ### Front end Hierarchy
 ![ERD](imgs/The_Wingman%20frontend.png)
 ***
+
+### Construction graph
+![ERD](imgs/Wingman%20Bot%20construction.png)
 ## Getting started
 The Wingman bot will only accept safe login with Discord via oauth2 and the only information We pull from discord are your username, userid and user's avatar.
+
+
+## Current functions
+Simply login with discord and authorize discord bot to your server, then you can utilize the two functions wingman bot has right now.
+
+* wb joke to get a random joke
+* A custmizable message function.
 
 ## MVP
 * Include a minimum of 3 models in Sequelize
@@ -43,5 +53,11 @@ The Wingman bot will only accept safe login with Discord via oauth2 and the only
 ***
 ## Future updates
 There are lots for feature coming to the discord bot and it's webpage, I will continue work on this project and post future updates on deployed website.
+
+## Screen shots
+
+![](imgs/Screen%20Shot%202021-10-18%20at%209.37.28%20AM.png)
+![](imgs/Screen%20Shot%202021-10-18%20at%209.38.19%20AM.png)
 ## Credits
+Thanks JokeApi for free jokes!
 [JokeApi](https://sv443.net/jokeapi/v2/)

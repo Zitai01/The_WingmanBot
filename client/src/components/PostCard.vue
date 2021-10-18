@@ -24,7 +24,7 @@ export default {
             this.date = new Date(Date.parse(d))
 
             let id = await parseInt(this.post.userid)
-            console.log(id)
+            
             
             let body = {
                 id: id
@@ -33,7 +33,7 @@ export default {
                         
             let user = await Client.put(`/db/user/id`,body)
             this.userName = user.data.username
-            console.log(user)
+            
         },
         godetail(){
             this.$router.push(`/postdetail/${this.post.id}`)

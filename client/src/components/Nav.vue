@@ -15,7 +15,7 @@
         </div>
         <div v-else  class="login">
         
-        <a href="https://discord.com/api/oauth2/authorize?client_id=893515753217720320&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Flogin&response_type=code&scope=identify%20guilds%20email">Login with Discord</a>
+        <a class="login" href="https://discord.com/api/oauth2/authorize?client_id=893515753217720320&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Flogin&response_type=code&scope=identify%20guilds%20email">Login with Discord</a>
     </div>
     </nav>
 </template>
@@ -52,14 +52,14 @@ export default {
             this.userid = result.data.id 
             let avatar = result.data.avatar
             this.avatar = `https://cdn.discordapp.com/avatars/${this.userid}/${avatar}.jpg`
-            console.log(result)
+            
             this.authenticated = true
             //localStorage.setItem('userid',result.data.id)
             let body = {
                 "user_id":this.userid
             }
             const checkuser = await Client.put(`/db/user/discordid`,body)
-            console.log(checkuser)
+            
             if (checkuser.data=='' ){
                 let userbody = {
                     "user_id":this.userid,
@@ -67,7 +67,7 @@ export default {
                     "avatar":this.avatar
                 }
                 const respond = await Client.post(`/db/user`,userbody)
-                console.log(respond)
+                
                 localStorage.setItem('userid',respond.data.id)
             }else{
                 localStorage.setItem('userid',checkuser.data.id)

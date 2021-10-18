@@ -40,7 +40,7 @@ export default {
             }
             let res = await Client.put(`/db/post`,body)
             this.post = res.data
-            console.log(res)
+            
             let body2 = {
                 "id":this.post.userid
             }
