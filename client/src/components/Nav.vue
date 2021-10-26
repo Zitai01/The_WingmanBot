@@ -15,7 +15,7 @@
         </div>
         <div v-else  class="login">
         
-        <a class="login" href="https://discord.com/api/oauth2/authorize?client_id=893515753217720320&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fapi%2Fauth%2Flogin&response_type=code&scope=identify%20guilds%20email">Login with Discord</a>
+        <a class="login" href="https://discord.com/api/oauth2/authorize?client_id=893515753217720320&redirect_uri=https%3A%2F%2Fwingmanbot.herokuapp.com%2Fapi%2Fauth%2Flogin&response_type=code&scope=guilds%20identify%20email">Login with Discord</a>
     </div>
     </nav>
 </template>
