@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const session = require('express-session')
 const AppRouter = require('./routes/AppRouter')
-const startBot = require('./bot/index')
+//const startBot = require('./bot/index')
 const serveStatic = require('serve-static')
 const path = require('path')
 
@@ -39,5 +39,5 @@ app.get(/.*/, (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server Started On Port: ${PORT}`)
-  startBot.startBot()
+  //startBot.startBot()
 })

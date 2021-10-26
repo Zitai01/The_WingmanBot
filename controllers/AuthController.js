@@ -7,7 +7,10 @@ const login = async (req, res) => {
     res.send('Code undefined')
   }
   const params = new URLSearchParams()
-  params.append('redirect_uri', 'http://localhost:3001/api/auth/login')
+  params.append(
+    'redirect_uri',
+    'https://wingmanbot.herokuapp.com/api/auth/login'
+  )
   params.append('client_id', '893515753217720320')
   params.append('code', code)
   params.append('client_secret', process.env.CLIENT_SECRET)
@@ -27,7 +30,7 @@ const login = async (req, res) => {
     token = respond.data.access_token
     req.session.token = token
     //  console.log(req.session)
-    res.redirect(`http://localhost:8080/dashboard/${token}`)
+    res.redirect(`https://wingmanbot.herokuapp.com/dashboard/${token}`)
   } catch (error) {
     console.log(error)
   }
