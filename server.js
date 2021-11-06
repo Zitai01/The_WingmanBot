@@ -39,5 +39,5 @@ app.get(/.*/, (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server Started On Port: ${PORT}`)
-  //startBot.startBot()
+  startBot.startBot()
 })
