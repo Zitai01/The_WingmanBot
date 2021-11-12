@@ -49,7 +49,7 @@ export default {
             console.log(result)
             this.msg = result.data.msg
             this.triggermsg = result.data.triggermsg
-            if (result == false){
+            if (result.data == ""){
                 let id = localStorage.userid
                 let body = {
                     "userid":id,
